@@ -1,17 +1,10 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
-const connMysql = require('./connectDB/dbMysql');
+const mysql = require('mysql');
+const myConnection = require('express-myconnection');
 const serve = express();
 const compradorRoutes = require('./routes/compradorRoute.js');
-
-//use routes
-serve.use('/', compradorRoutes);
-
-
-//Static files
-serve.use(express.static(path.join(__dirname, 'public')));
-
 
 //express settings
 
@@ -24,11 +17,19 @@ serve.set('views', path.join(__dirname, 'views'))
 
 //Middlewares->manejar los datos que envio el usuario
 serve.use(morgan('dev'));
+serve.use(myConnection(mysql,{
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    port: '3306',
+    database: 'crudnode'
+}, 'single'));
 
-//conectdb
-serve.use(connMysql);
+//use routes
+serve.use('/', compradorRoutes);
 
-
+//Static files
+serve.use(express.static(path.join(__dirname, 'public')));
 
 //server started
 serve.listen(serve.get('port'), ()=>{
