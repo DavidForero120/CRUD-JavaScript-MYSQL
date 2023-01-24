@@ -3,7 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const connMysql = require('./connectDB/dbMysql');
 const serve = express();
-const compradorRoutes = require('./routes/comprador.js');
+const compradorRoutes = require('./routes/compradorRoute.js');
 
 //use routes
 serve.use('/', compradorRoutes);
