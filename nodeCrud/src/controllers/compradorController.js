@@ -20,5 +20,15 @@ controller.list = (req, res)=>{
     
 };
 
+//NEW OR SAVE Comprador
+controller.saveComprador = (req, res)=>{
+    const data = req.body;
+    req.getConnection((err, conn)=>{
+        conn.query('INSERT INTO Comprador set ?', [data], (err, newComprador)=>{
+            console.log(newComprador);
+        });
+    })
+   res.redirect('/')
+}
 
 module.exports = controller;

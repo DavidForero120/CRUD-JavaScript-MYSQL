@@ -5,6 +5,7 @@ const mysql = require('mysql');
 const myConnection = require('express-myconnection');
 const serve = express();
 const compradorRoutes = require('./routes/compradorRoute.js');
+const { urlencoded } = require('express');
 
 //express settings
 
@@ -24,6 +25,9 @@ serve.use(myConnection(mysql,{
     port: '3306',
     database: 'crudnode'
 }, 'single'));
+
+/*entiende los datos de los formularios*/
+serve.use(express.urlencoded({extended: false}));
 
 //use routes
 serve.use('/', compradorRoutes);

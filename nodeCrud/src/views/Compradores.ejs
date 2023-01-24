@@ -1,7 +1,53 @@
-<!--include: <%- include('route')%>-->
+
 
 <%- include('component/_nav') %>
 
-<h1>Hola</h1>
+
+
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-7">
+                <table class="tablet table-bordered table-hover">
+                    <thead>
+                        <th>n1</th>
+                        <th>name</th>
+                        <th>adress</th>
+                        <th>phone</th>
+                        <th>actions</th>
+                    </thead>
+                    <tbody>
+                        <%  if(data){ %>
+
+                            <% for(var i=0; i< data.length; i++){%>
+
+                                <tr>
+                                    <td><%= ( i + 1 )%></td>
+                                    <th><%= data[i].name %></th>
+                                    <th><%= data[i].address %></th>
+                                    <th><%= data[i].phone %></th>
+                                    <th></th>
+                                </tr>
+
+                            <%}%>
+
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-5">
+                <div class="card-body">
+                    <form action="/addComprador" method="post">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Nombre" class="form-control" required="required">
+                            <input type="text" name="address" placeholder="direccion" class="form-control" required>
+                            <input type="text" name="phone" placeholder="telefono" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <%- include('component/_footer') %>
