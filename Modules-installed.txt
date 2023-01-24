@@ -1,0 +1,5 @@
+npm i -> añadir modulos
+modulo Mysql-> para conectarnos al bd
+modulo express-myconnection -> hacer consultas sql mas rapido
+modulo morgan -> ver las peticiones mas rapido
+modulo ejs -> motor de plantillas  
