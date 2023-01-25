@@ -6,6 +6,7 @@ const myConnection = require('express-myconnection');
 const serve = express();
 const compradorRoutes = require('./routes/compradorRoute.js');
 const indexRoutes = require('./routes/IndexRoute.js');
+const userRoutes = require('./routes/userRoute');
 const { urlencoded } = require('express');
 
 //express settings
@@ -39,6 +40,7 @@ dotenv.config({path:'../env/.env'});
 //use routes
 serve.use('/customer', compradorRoutes);
 serve.use('/', indexRoutes);
+serve.use('/user', userRoutes);
 
 //config sessions
 const session = require('express-session');
