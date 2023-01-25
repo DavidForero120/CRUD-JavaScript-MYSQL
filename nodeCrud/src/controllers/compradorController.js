@@ -1,3 +1,4 @@
+
 const controller = {};
 /*----METHODS CRUD----*/  
 
@@ -26,7 +27,7 @@ controller.saveComprador = (req, res)=>{
     req.getConnection((err, conn)=>{
         conn.query('INSERT INTO Comprador set ?', [data], (err, newComprador)=>{
             console.log(newComprador);
-            res.redirect('/')
+            res.redirect('/customer/listCustom')
         });
     })
    
@@ -52,7 +53,7 @@ controller.edit = (req,res)=>{
     req.getConnection((err, conn)=>{
         conn.query('UPDATE Comprador set ? WHERE id = ?', [newData, id], (err, data)=>{
             console.log(data)
-            res.redirect('/');
+            res.redirect('/customer/listCustom');
         })
     })
 }
@@ -61,7 +62,7 @@ controller.eliminar = (req, res)=>{
     const id = req.params.id;
     req.getConnection((err, conn)=>{
         conn.query('DELETE FROM Comprador WHERE id = ?', [id], (err, rows)=>{
-            res.redirect('/')
+            res.redirect('/customer/listCustom')
         })
     })
 }

@@ -1,0 +1,28 @@
+*{
+ margin: 0;
+}
+a{
+    text-decoration: none;
+}
+.nav_return{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(168, 118, 26, 0.76);
+    margin-bottom: 15px;
+}
+.logo_cat{
+    width: 20%;
+}
+.logo_cat img{
+    width: 100%;
+    margin: 5px;
+}
+.return_{
+    margin-right: 5px;
+    
+}
+.return_ a{
+    color: white;
+} 
