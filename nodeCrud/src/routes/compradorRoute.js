@@ -7,7 +7,18 @@ const compradorController = require('../controllers/compradorController');
 router.get('/', compradorController.list)
 
 //add data
-router.post('/addComprador', compradorController.saveComprador)
+router.post('/addComprador', compradorController.saveComprador);
+
+//delete data
+router.get('/delete/:id', compradorController.eliminar);
+
+//ConsultaUnDato
+router.get('/update/:id', compradorController.consult);
+
+//actualizar dato consultado
+router.post('/up/:id', compradorController.edit);
+
+
 
 
 module.exports = router;

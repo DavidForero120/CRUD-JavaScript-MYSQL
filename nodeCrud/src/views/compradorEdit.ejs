@@ -1,0 +1,12 @@
+<%- include('component/_nav')%>
+
+    <form action="/up/<%= data.id %>" method="post">
+        <div class="form-group">
+            <input type="text" name="name" value='<%= data.name %>' placeholder="Nombre" class="form-control" required="required">
+            <input type="text" name="address" value='<%= data.address %>'  placeholder="direccion" class="form-control" required>
+            <input type="text" name="phone" value='<%= data.phone %>' placeholder="telefono" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+
+<%- include('component/_footer') %>

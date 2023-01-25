@@ -26,7 +26,11 @@
                                     <th><%= data[i].name %></th>
                                     <th><%= data[i].address %></th>
                                     <th><%= data[i].phone %></th>
-                                    <th></th>
+                                    
+                                    <th>
+                                        <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Eliminar</a>
+                                        <a href="/update/<%= data[i].id %>" class="btn btn-info">Actualizar</a>
+                                    </th>
                                 </tr>
 
                             <%}%>
