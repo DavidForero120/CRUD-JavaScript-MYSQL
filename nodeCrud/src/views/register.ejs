@@ -15,14 +15,17 @@
 
         <h1>Create cat Count</h1>
         <form action="/user/newUser" method="post">
-            <input type="text" name="nombreUsuario" placeholder="nombreUsuario" >
-            <input type="text" name="nombre" placeholder="nombre" >
-            <input type="text" name="correo" placeholder="correo" >
-            <input type="hidden" name="rol" value="visitante">
-            <input type="password" name="password" placeholder="Contraseña">
+            <input type="text" name="nombreUsuario" placeholder="nombreUsuario" required >
+            <input type="text" name="nombre" placeholder="nombre" required>
+            <input type="email" name="correo" placeholder="correo" required>
+            <input type="hidden" name="rol" value="visitante" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
 
             <button type="submit">Registrarse</button>
         </form>
+        <div class="error">
+            <%= error %>
+        </div>
 
     </div>
 </body>

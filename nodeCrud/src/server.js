@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
 const serve = express();
+const bodyParser = require('body-parser');
 const compradorRoutes = require('./routes/compradorRoute.js');
 const indexRoutes = require('./routes/IndexRoute.js');
 const userRoutes = require('./routes/userRoute');
@@ -20,13 +21,15 @@ serve.set('views', path.join(__dirname, 'views'))
 
 //Middlewares->manejar los datos que envio el usuario
 serve.use(morgan('dev'));
+
+
 serve.use(myConnection(mysql,{
     host: 'localhost',
     user: 'root',
     password: '',
     port: '3306',
     database: 'crudnode'
-}, 'single'));
+}));
 
 /*entiende los datos de los formularios-permite el procesamiento de datos
 si no se tiene no sirve los metodos http*/
