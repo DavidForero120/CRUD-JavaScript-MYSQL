@@ -47,6 +47,7 @@ serve.use('/user', userRoutes);
 
 //config sessions
 const session = require('express-session');
+
 serve.use(session({
     secret: 'secret',
     resave: true,

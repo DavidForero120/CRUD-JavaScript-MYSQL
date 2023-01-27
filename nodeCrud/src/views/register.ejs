@@ -23,8 +23,13 @@
 
             <button type="submit">Registrarse</button>
         </form>
-        <div class="error">
+        <div class="error" id="error">
+            <% 
+         if(error != null){ 
+            %>
             <%= error %>
+
+         <% } %>
         </div>
 
     </div>

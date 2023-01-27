@@ -6,10 +6,13 @@ router.get('/', (req, res)=>{
 });
 
 router.get('/login', (req,res)=>{
-    res.render('login');
+    res.render('login',{error: ''});
 });
 
 router.get('/user/register', (req, res)=>{
-    res.render('register');
+    res.render('register', {error : null});
 });
+
+
+
 module.exports = router;
