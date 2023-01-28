@@ -1,6 +1,7 @@
 const controller = {};
 const bcrypt = require('bcrypt');
 const { hash } = require('bcryptjs');
+const session = require('express-session');
 
 
 
@@ -50,7 +51,12 @@ controller.iniciar =  (req, res)=>{
                             res.render('login', {error: 'Los datos ingresados no son correctos'});
                         }else{  
                             //sesiones
-                    
+                            if(element.rol === "visitante"){
+                              const validation = req.session = element.id
+                              console.log(validation)
+                            }else if(element.rol === "admin"){
+                               
+                            }
                         }
                     });
                 });

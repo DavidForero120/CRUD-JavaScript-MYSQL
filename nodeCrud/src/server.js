@@ -5,6 +5,7 @@ const mysql = require('mysql');
 const myConnection = require('express-myconnection');
 const serve = express();
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const compradorRoutes = require('./routes/compradorRoute.js');
 const indexRoutes = require('./routes/IndexRoute.js');
 const userRoutes = require('./routes/userRoute');
@@ -46,11 +47,9 @@ serve.use('/', indexRoutes);
 serve.use('/user', userRoutes);
 
 //config sessions
-const session = require('express-session');
-
 serve.use(session({
     secret: 'secret',
-    resave: true,
+    resave: false,
     saveUninitialized: true
 }));
 
