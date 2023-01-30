@@ -7,6 +7,9 @@
 a{
     text-decoration: none;
 }
+.f2{
+    display: none;
+}
 .nav_return{
     width: 100%;
     display: flex;
@@ -45,7 +48,7 @@ a{
 .login_container{
     width: 100%;
     display: flex;
-    flex-direction: column;
+
     justify-content: center;
     align-items: center;
     height: 80%;
@@ -56,10 +59,11 @@ a{
 }
 .formLogin{
     width: 200px;
-    height: 300px;
+    height: 90%;
     background-color: black;
     padding: 20px;
-    border-radius: 20px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
     border: 1.5px solid gray;
 }
 .title_login{
@@ -148,7 +152,15 @@ a{
     z-index: -1;
     
 }
-
+.image_{
+    background-color: gray;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
 /*QUERYS*/
 
 @media screen and (min-width: 500px){
@@ -187,4 +199,27 @@ a{
     .btn-input{
         margin: 12px 0px 11px 0px;
     }
+}
+@media screen and (min-width: 1024px){
+    .formLogin{
+        width: 320px;
+        height: 500px;
+    }
+   .title_login{
+    font-size: 1.8em;
+    margin-bottom: 2%;
+   }
+   .text_Inf{
+    font-size: 1.1em;
+   }
+   .btn-input{
+    height: 2.5em;
+   }
+   .sub_{
+    width: 9em;
+    height: 2.9em;
+   }
+   .image_{
+    height: 545px ;
+   }
 }

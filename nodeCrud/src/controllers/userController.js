@@ -52,8 +52,8 @@ controller.iniciar =  (req, res)=>{
                         }else{  
                             //sesiones
                             if(element.rol === "visitante"){
-                              const validation = req.session = element.id
-                              console.log(validation)
+                               req.session = element.id
+                               res.render('/home/visit')       
                             }else if(element.rol === "admin"){
                                
                             }

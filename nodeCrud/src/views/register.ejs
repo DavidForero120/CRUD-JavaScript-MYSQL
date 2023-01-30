@@ -5,33 +5,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/register.css">
     <title>CatIcon</title>
 </head>
 <body>    
     <div class="container_log">
-
-        <%- include('component/_nav_returnIndex') %>
-
-        <h1>Create cat Count</h1>
-        <form action="/user/newUser" method="post">
-            <input type="text" name="nombreUsuario" placeholder="nombreUsuario" required >
-            <input type="text" name="nombre" placeholder="nombre" required>
-            <input type="email" name="correo" placeholder="correo" required>
-            <input type="hidden" name="rol" value="admin" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-
-            <button type="submit">Registrarse</button>
-        </form>
-        <div class="error" id="error">
-            <% 
-         if(error != null){ 
-            %>
-            <%= error %>
-
-         <% } %>
+        <%- include('component/_nav_returnIndex') %>  
+        <div class="login_container"> 
+            <div class="image_">
+                <img src="../../img/nav_bird.png" alt="logo">
+            </div>      
+            <div class="formLogin">
+                <h1 class="title_login">Register</h1>
+                <div class="burbble">
+                   .
+                </div>
+                <div class="burbble2">
+                   .
+                </div>
+                <form action="/user/newUser" method="post">
+                    <div class="text_Inf" id="text_Inf">
+                        <label for="nombreUsuario">User name:</label>
+                    </div>
+                    <input class="btn btn-input" type="text" name="nombreUsuario" required >
+                    <div class="text_Inf" id="text_Inf">
+                        <label for="password">Name:</label>
+                    </div>
+                    <input class="btn btn-input" type="text" name="nombre" required>
+                    <div class="text_Inf" id="text_Inf">
+                        <label for="password">Mail:</label>
+                    </div>    
+                    <input class="btn btn-input" type="email" name="correo" required>
+                    <input type="hidden" name="rol" value="admin" required>
+                    <div class="text_Inf" id="text_Inf">
+                        <label for="password">Password:</label>
+                    </div>
+                    <input class="btn btn-input" type="password" name="password" required>
+                    <button type="submit" class="sub_">Send</button>
+                </form>
+                <div class="error" id="error">
+                    <% if (error){ %> 
+        
+                        <%= error %>
+            
+                    <% } %>
+                </div>
+            </div>
         </div>
-
     </div>
 </body>
 </html>

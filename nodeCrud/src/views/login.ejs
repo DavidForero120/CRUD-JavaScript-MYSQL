@@ -6,26 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login.css">
-    <title>CatIcon</title>
+    <title>BirdStone</title>
 </head>
 <body>    
     <div class="container_log">
 
         <%- include('component/_nav_returnIndex') %>
-
-        <h1>Bienvenido a StoreI</h1>
-        <form action="/user/auth" method="POST">
-            <input type="text" name="nombreUsuario" placeholder="nombreUsuario">
-            <input type="password" name="password" placeholder="Contraseña">
-            <button type="submit">Iniciar</button>
-            <a href="/user/register">¿no tiene usuario? registrese aqui...</a>
-        </form>
-        <div class="error" id="error">
-            <% if (error){ %> 
-
-                <%= error %>
-    
-            <% } %>
+        <div class="login_container">       
+            <div class="formLogin">
+                <h1 class="title_login">Sing in </h1>
+                <div class="burbble">
+                   .
+                </div>
+                <div class="burbble2">
+                   .
+                </div>
+                <form action="/user/auth" method="POST">
+                    <div class="text_Inf" id="text_Inf">
+                        <label for="nombreUsuario">User name:</label>
+                    </div>
+                    <input class="btn btn-input" type="text" name="nombreUsuario" required>
+                    <div class="text_Inf" id="text_Inf">
+                        <label for="password">Password:</label>
+                    </div>
+                    <input class="btn btn-input" type="password" name="password" required>
+                    <button type="submit" class="sub_">Sing in</button>
+                    <div class="send_register">
+                        <p>¿u don´t have account?</p> <a href="/user/register" class="Nexto">¡Sing up!</a>
+                    </div>
+                </form>
+                <div class="error" id="error">
+                    <% if (error){ %> 
+        
+                        <%= error %>
+            
+                    <% } %>
+                </div>
+            </div>
         </div>
     </div>
 </body>

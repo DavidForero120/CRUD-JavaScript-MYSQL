@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const router = express.Router();
 
 router.get('/', (req, res)=>{
@@ -7,6 +8,14 @@ router.get('/', (req, res)=>{
 
 router.get('/login', (req,res)=>{
     res.render('login',{error: ''});
+});
+
+router.get('/home/visit', (req,res)=>{
+    if(req.session != null){
+        res.redirect('/home/visit')
+    }else{
+        res.send('no')
+    }
 });
 
 router.get('/user/register', (req, res)=>{
