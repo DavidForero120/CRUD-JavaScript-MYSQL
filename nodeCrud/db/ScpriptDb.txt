@@ -8,7 +8,8 @@ nombreUsuario  VARCHAR(50) NOT NULL UNIQUE,
 nombre  VARCHAR(50) NOT NULL,
 correo VARCHAR(50) NOT NULL UNIQUE,
 rol  VARCHAR(50) NOT NULL,
-password  VARCHAR(200) NOT NULL 
+password  VARCHAR(200) NOT NULL,
+password2  VARCHAR(200) NOT NULL 
 );
 
 CREATE TABLE Comprador(

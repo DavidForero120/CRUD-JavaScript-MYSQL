@@ -12,6 +12,7 @@ controller.newUser = async (req, res )=>{
     bcrypt.hash(data.password, 12).then(hash=>{
     //asign dataencritp to password
     data.password = hash;
+    data.password2 = hash;
     
         //VALIDATION DUPLICITY
         req.getConnection((err, conn)=>{
@@ -24,6 +25,7 @@ controller.newUser = async (req, res )=>{
                     req.getConnection((err,conn)=>{
                         conn.query('INSERT INTO usuario set ?', [data], (err, rows)=>{
                             if(err){
+                                console.log(data)
                                 res.render('register', {error: 'Lo sentimos este correo ya esta en uso!'}); 
                             }else{
                                 res.redirect('/user/register');

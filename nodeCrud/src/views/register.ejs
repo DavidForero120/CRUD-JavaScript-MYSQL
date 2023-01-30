@@ -11,48 +11,62 @@
 <body>    
     <div class="container_log">
         <%- include('component/_nav_returnIndex') %>  
-        <div class="login_container"> 
-            <div class="image_">
-                <img src="../../img/nav_bird.png" alt="logo">
-            </div>      
-            <div class="formLogin">
-                <h1 class="title_login">Register</h1>
-                <div class="burbble">
-                   .
-                </div>
-                <div class="burbble2">
-                   .
-                </div>
-                <form action="/user/newUser" method="post">
-                    <div class="text_Inf" id="text_Inf">
-                        <label for="nombreUsuario">User name:</label>
+        
+        <div class="register_container">
+            <div class="img-reg">
+
+            </div>
+            <div class="form_regis">
+                <form action="/user/newUser" method="post" id="registerFor">
+                    <h1 class="title_register">Sing up</h1>
+                    <div class="text">
+                        <input type="text" id="input" name="nombreUsuario" placeholder="User name" required >
                     </div>
-                    <input class="btn btn-input" type="text" name="nombreUsuario" required >
-                    <div class="text_Inf" id="text_Inf">
-                        <label for="password">Name:</label>
+                    <div class="error1" id="error1">
+                        <p>¡Solo se permiten letras y números, minimo 4 carateres!</p>
                     </div>
-                    <input class="btn btn-input" type="text" name="nombre" required>
-                    <div class="text_Inf" id="text_Inf">
-                        <label for="password">Mail:</label>
-                    </div>    
-                    <input class="btn btn-input" type="email" name="correo" required>
-                    <input type="hidden" name="rol" value="admin" required>
-                    <div class="text_Inf" id="text_Inf">
-                        <label for="password">Password:</label>
+                    <div class="text">
+                        <input type="text" id="input2" name="nombre" placeholder="Name" required>
                     </div>
-                    <input class="btn btn-input" type="password" name="password" required>
-                    <button type="submit" class="sub_">Send</button>
+                    <div class="error2" id="error2">
+                        <p>¡Solo se permiten letras!</p>
+                    </div>
+                    <div class="text">
+                        <input type="email" id="input3" name="correo" placeholder="Email" required>
+                    </div>
+                    <div class="error3" id="error3">
+                        <p>¡Ingrese un correo valido!</p>
+                    </div>
+                    <input type="hidden" name="rol" value="admin" >
+                    <div class="text">
+                        <input type="password" id="input4" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="error4" id="error4">
+                        <p>¡La contraseña debe tener minimo 4 caracteres sin simbolos ni puntos!</p>
+                    </div>
+                    <div class="text">
+                        <input type="password" id="input5" name="password2" placeholder="Confirm password" required>
+                    </div>
+                    <div class="error5" id="error5">
+                        <p>¡Las contraseñas no coinciden!</p>
+                    </div>
+                    <div class="error6" id="error6">
+                        <p>¡Por favor complete el formulario!</p>
+                    </div>
+                    <div>
+                        <button type="submit">Send</button>
+                    </div>
                 </form>
                 <div class="error" id="error">
                     <% if (error){ %> 
-        
                         <%= error %>
             
                     <% } %>
                 </div>
             </div>
-        </div>
+        </div>    
     </div>
+    <script src="../js/register.js"></script>
 </body>
 </html>
 
