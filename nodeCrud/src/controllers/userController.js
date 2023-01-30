@@ -28,7 +28,7 @@ controller.newUser = async (req, res )=>{
                                 console.log(data)
                                 res.render('register', {error: 'Lo sentimos este correo ya esta en uso!'}); 
                             }else{
-                                res.redirect('/user/register');
+                                res.redirect('/user/register').send({});
                             }
                         });
                     });
