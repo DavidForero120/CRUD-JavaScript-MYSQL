@@ -28,7 +28,8 @@ controller.newUser = async (req, res )=>{
                                 console.log(data)
                                 res.render('register', {error: 'Lo sentimos este correo ya esta en uso!'}); 
                             }else{
-                                res.redirect('/user/register').send({});
+                                let exito = 'El usuario se registro correctamente'
+                                res.redirect('/user/register');
                             }
                         });
                     });
@@ -55,9 +56,9 @@ controller.iniciar =  (req, res)=>{
                             //sesiones
                             if(element.rol === "visitante"){
                                req.session = element.id
-                               res.render('/home/visit')       
+                               res.redirect('/home/visit')       
                             }else if(element.rol === "admin"){
-                               
+                                res.redirect('/home/visit')
                             }
                         }
                     });

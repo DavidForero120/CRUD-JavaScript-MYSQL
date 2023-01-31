@@ -9,12 +9,15 @@ router.get('/', (req, res)=>{
 router.get('/login', (req,res)=>{
     res.render('login',{error: ''});
 });
+router.get('/session/expired', (req,res)=>{
+    res.render('sessionull');
+})
 
 router.get('/home/visit', (req,res)=>{
     if(req.session != null){
         res.redirect('/home/visit')
     }else{
-        res.send('no')
+        res.redirect('/session/expired')
     }
 });
 
