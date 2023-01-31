@@ -10,7 +10,7 @@
 </head>
 <body>    
     <div class="container_log">
-
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <%- include('component/_nav_returnIndex') %>
         <div class="login_container">       
             <div class="formLogin">
@@ -35,16 +35,13 @@
                         <p>¿u don´t have account?</p> <a href="/user/register" class="Nexto">¡Sing up!</a>
                     </div>
                 </form>
-                <div class="error" id="error">
-                    <% if (error){ %> 
-                        
-                        <%= error %>
-            
-                    <% } %>
-                </div>
+                <% if (error != null){ %> 
+                    <p id="err"><%= error %></p>
+                <% }%>
             </div>
         </div>
     </div>
+    <script src="../js/mensajes.js"></script>
 </body>
 </html>
 

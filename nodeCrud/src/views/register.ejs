@@ -9,12 +9,13 @@
     <title>CatIcon</title>
 </head>
 <body>    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="container_log">
         <%- include('component/_nav_returnIndex') %>  
         
         <div class="register_container">
             <div class="img-reg">
-                <img src="../img/logo_white.png" alt="logo">
+                <img src="../img/logo_white.png" alt="">
             </div>
             <div class="form_regis">
                 <form action="/user/newUser" method="post" id="registerFor">
@@ -37,7 +38,7 @@
                     <div class="error3" id="error3">
                         <p>¡Ingrese un correo valido!</p>
                     </div>
-                    <input type="hidden" name="rol" value="visitante" >
+                    <input type="hidden" name="rol" value="admin" >
                     <div class="text">
                         <input type="password" id="input4" name="password" placeholder="Password" required>
                     </div>
@@ -57,15 +58,17 @@
                         <button class="sendo" type="submit">Send</button>
                     </div>
                 </form>
-                <div class="error" id="error">
-                    <% if (error){ %> 
-                        <%= error %>
-            
+                    <% if (error != null){ %> 
+                        <p id="err"><%= error %></p>
+                    <% }%>
+                    
+                    <% if (exito != null){ %> 
+                        <p id="exi"><%= exito %></p>
                     <% } %>
-                </div>
             </div>
         </div>    
     </div>
+    <script src="../js/mensajes.js"></script>
     <script src="../js/register.js"></script>
 </body>
 </html>

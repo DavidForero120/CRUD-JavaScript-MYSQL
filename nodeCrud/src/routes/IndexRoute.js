@@ -7,7 +7,7 @@ router.get('/', (req, res)=>{
 });
 
 router.get('/login', (req,res)=>{
-    res.render('login',{error: ''});
+    res.render('login',{error: null});
 });
 router.get('/session/expired', (req,res)=>{
     res.render('sessionull');
@@ -20,9 +20,8 @@ router.get('/home/visit', (req,res)=>{
         res.redirect('/session/expired')
     }
 });
-
 router.get('/user/register', (req, res)=>{
-    res.render('register', {error : null});
+    res.render('register', {error : null,exito: null});
 });
 
 

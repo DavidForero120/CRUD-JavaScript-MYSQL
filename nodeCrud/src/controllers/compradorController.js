@@ -67,4 +67,6 @@ controller.eliminar = (req, res)=>{
     })
 }
 
+
+
 module.exports = controller;
