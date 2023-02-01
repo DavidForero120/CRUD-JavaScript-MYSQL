@@ -54,12 +54,14 @@ controller.iniciar =  (req, res)=>{
                             res.render('login', {error: '!Información incorrecta, vuelve a intentarlo¡'});
                         }else{  
                             //sesiones
-                            if(element.rol === "visitante"){
+                            if(element.rol === "visitante" ){
                             let idU = element.id;
                             req.session.userId = idU;
                             
                             res.redirect('/home/visit');
                             }else if(element.rol === "admin"){
+                                let idU = element.id;
+                                req.session.userId = idU;
                                 res.redirect('/home/visit')
                             }
                         }
