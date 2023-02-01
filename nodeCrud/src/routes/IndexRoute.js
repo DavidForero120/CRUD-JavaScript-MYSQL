@@ -9,16 +9,14 @@ router.get('/', (req, res)=>{
 router.get('/login', (req,res)=>{
     res.render('login',{error: null});
 });
+
 router.get('/session/expired', (req,res)=>{
     res.render('sessionull');
 })
 
 router.get('/home/visit', (req,res)=>{
-    if(req.session != null){
-        res.redirect('/home/visit')
-    }else{
-        res.redirect('/session/expired')
-    }
+    console.log(req.session)
+    res.send('perra')
 });
 router.get('/user/register', (req, res)=>{
     res.render('register', {error : null,exito: null});

@@ -7,6 +7,10 @@
     <title>WelcomeCat</title>
 </head>
 <body>
-    
+    <% if(user) { %> 
+    <%= user %>
+    <% }else{
+        redirect('/home/visit');
+    } %>
 </body>
 </html>

@@ -55,8 +55,10 @@ controller.iniciar =  (req, res)=>{
                         }else{  
                             //sesiones
                             if(element.rol === "visitante"){
-                               req.session = element.id
-                               res.redirect('/home/visit')       
+                            let idU = element.id;
+                            req.session.userId = idU;
+                            
+                            res.redirect('/home/visit');
                             }else if(element.rol === "admin"){
                                 res.redirect('/home/visit')
                             }
