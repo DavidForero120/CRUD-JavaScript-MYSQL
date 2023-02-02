@@ -10,7 +10,7 @@ controller.newUser = async (req, res )=>{
     const data= req.body;
     //encrypt pass
     bcrypt.hash(data.password, 12).then(hash=>{
-    //asign dataencritp to password
+    //asign data encritp to password
     data.password = hash;
     data.password2 = hash;
     
@@ -39,7 +39,7 @@ controller.newUser = async (req, res )=>{
 }
 
 
-//INICIAR SESION
+//SING UP
 controller.iniciar =  (req, res)=>{
     const data = req.body
     req.getConnection((err, conn)=>{
@@ -47,22 +47,23 @@ controller.iniciar =  (req, res)=>{
             //VERIFY IF USER EXIST
             if(rows.length > 0){
                 //VALIDATION DATA
-                //hacer un foreach para recorrer los datos del objeto obtenido
+                //MADE A FOREACH FOR TRAVEL DATA OF GET OBJECT
                 rows.forEach(element => {
                 bcrypt.compare(data.password, element.password, (err, isMatch)=>{
                         if(!isMatch){
                             res.render('login', {error: '!Información incorrecta, vuelve a intentarlo¡'});
                         }else{  
-                            //sesiones
+                            //SESSIONS WHITH ROL
                             if(element.rol === "visitante" ){
-                            let idU = element.id;
-                            req.session.userId = idU;
-                            
-                            res.redirect('/home/visit');
+                                //validation authentication user
+                                let usu = element.id;
+                                req.session.authUser = usu;
+                                res.redirect('/home/visit');
                             }else if(element.rol === "admin"){
-                                let idU = element.id;
-                                req.session.userId = idU;
-                                res.redirect('/home/visit')
+                                //validation authentication user
+                                let usu = element.id;
+                                req.session.authUser = usu;
+                                res.redirect('/home/admin');
                             }
                         }
                     });

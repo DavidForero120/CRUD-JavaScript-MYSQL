@@ -64,9 +64,6 @@ serve.use(flash());
 //Static files
 serve.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
 //server started
 serve.listen(serve.get('port'), ()=>{
     console.log('server start')

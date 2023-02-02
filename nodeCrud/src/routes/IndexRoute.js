@@ -1,27 +1,41 @@
 const express = require('express');
-const session = require('express-session');
 const router = express.Router();
+const validation = require('../auth/authUser')
 
-router.get('/', (req, res)=>{
+//INITIAL ROUTE
+router.get('/',validation.destroy, (req, res)=>{
     res.render('index');
 });
 
-router.get('/login', (req,res)=>{
-    res.render('login',{error: null});
+//SING IN TO APPLICATION WEB
+router.get('/login', validation.destroy, (req,res)=>{
+        res.render('login', {error: null});  
 });
 
-router.get('/session/expired', (req,res)=>{
+//SESSION NO EXIST OR EXPIRED
+router.get('/session/expired', validation.destroy, (req,res)=>{
     res.render('sessionull');
-})
-
-router.get('/home/visit', (req,res)=>{
-    console.log(req.session)
-    res.send('perra')
 });
+
+
+//ROL VISIT
+router.get('/home/visit', validation.sessiValidation, /*validation.leave,*/ (req,res)=>{
+        res.render('homePage');
+    
+});
+
+//ROL ADMIN
+router.get('/home/admin', validation.sessiValidation, /*validation.leave,*/ (req,res)=>{
+        res.render('homeAdmin');  
+});
+//NEW USER
 router.get('/user/register', (req, res)=>{
-    res.render('register', {error : null,exito: null});
+    res.render('register', {error : null, exito: null});
 });
 
-
+router.get('/exit', (req,res)=>{
+    req.session.destroy();
+    res.redirect('/');
+} )
 
 module.exports = router;
