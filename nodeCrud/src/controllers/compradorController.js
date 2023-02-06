@@ -10,7 +10,6 @@ controller.list = (req, res)=>{
             if(err){
                 res.json(err);
             }
-
             res.render('Compradores',{
                 data: compradores
             });

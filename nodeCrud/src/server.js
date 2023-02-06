@@ -5,12 +5,14 @@ const mysql = require('mysql');
 const myConnection = require('express-myconnection');
 const serve = express();
 const session = require('express-session');
-const compradorRoutes = require('./routes/compradorRoute.js');
-const indexRoutes = require('./routes/IndexRoute.js');
+const compradorRoutes = require('./routes/compradorRoute');
+const indexRoutes = require('./routes/IndexRoute');
 const userRoutes = require('./routes/userRoute');
+const productsRoutes = require('./routes/productRoute');
+const cors = require('cors');
 const flash = require('connect-flash');
 //express settings
-
+serve.use(cors());
 //PORT
 serve.set('port', process.env.PORT || 3000);
 
@@ -58,6 +60,7 @@ dotenv.config({path:'../env/.env'});
 serve.use('/customer', compradorRoutes);
 serve.use('/', indexRoutes);
 serve.use('/user', userRoutes);
+serve.use('/', productsRoutes);
 
 serve.use(flash());
 
