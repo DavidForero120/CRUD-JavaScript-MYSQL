@@ -11,8 +11,10 @@ const userRoutes = require('./routes/userRoute');
 const productsRoutes = require('./routes/productRoute');
 const cors = require('cors');
 const flash = require('connect-flash');
+const multer = require('multer');
 //express settings
 serve.use(cors());
+serve.use(flash());
 //PORT
 serve.set('port', process.env.PORT || 3000);
 
@@ -33,7 +35,7 @@ serve.use(myConnection(mysql,{
 }));
 /*entiende los datos de los formularios-permite el procesamiento de datos
 si no se tiene no sirve los metodos http*/
-serve.use(express.urlencoded({extended: true}));
+serve.use(express.urlencoded({extended: false}));
 serve.use(express.json());
 
 //config sessions
@@ -52,6 +54,8 @@ serve.use(session({
         next();
 });*/
 
+
+
 //confing env
 const dotenv = require('dotenv');
 dotenv.config({path:'../env/.env'});
@@ -62,7 +66,7 @@ serve.use('/', indexRoutes);
 serve.use('/user', userRoutes);
 serve.use('/', productsRoutes);
 
-serve.use(flash());
+
 
 //Static files
 serve.use(express.static(path.join(__dirname, 'public')));

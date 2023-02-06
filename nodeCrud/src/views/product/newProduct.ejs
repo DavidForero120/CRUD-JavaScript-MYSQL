@@ -7,9 +7,11 @@
     <title>NewProduct</title>
 </head>
 <body>
-        <form action="/sendData" method="POST">
-            
-            <input type="file" name="image" placeholder="choose image">
+        <form action="/sendData" method="POST" enctype="multipart/form-data">
+            <input type="text" name="nombre" placeholder="Name">
+            <input type="text" name="precio" placeholder="Price">
+            <input type="text" name="cantidad" placeholder="amount">
+            <input type="file" name="image" >
             <button type="submit">Enviar</button>
         </form>
 </body>

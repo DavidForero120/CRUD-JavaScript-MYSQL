@@ -2,27 +2,29 @@ const express = require('express');
 const router = express.Router();
 const validation = require('../auth/authUser');
 const productController = require('../controllers/productController');
-const multer = require('multer');
-const sharp = require('sharp');
+const path = require('path');
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb)=>{
-        cb(null, './uploads')
-    }, 
-    filename: (req, file, cb)=>{
-        const ext = file.originalname.split('.').pop(); //capture extension for image
-        cb(null, `${Date.now()}.${ext}`);
+const multer = require('multer');
+let fecha = Date.now();
+
+let ruta = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null,  path.join(__dirname, '../public/uploads/'));
+    },
+    filename: function (req, file, cb) {
+        cb(null, fecha+"_"+file.originalname);
     }
 });
 
-const upload = multer({storage});
+let cargar = multer({ storage: ruta });
+
 
 router.get('/products', validation.sessiValidation, productController.list);
 
 router.get('/newProduct', (req,res)=>{
     res.render('product/newProduct');
-})
-router.post('/sendData', upload.single('image'), (req, res)=>{
-    res.send({data: 'image upload'})
 });
+
+router.post('/sendData', cargar.single("image") , productController.create);
+
 module.exports = router
