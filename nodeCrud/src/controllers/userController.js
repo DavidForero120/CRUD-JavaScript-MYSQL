@@ -13,20 +13,18 @@ controller.newUser = async (req, res )=>{
     //asign data encritp to password
     data.password = hash;
     data.password2 = hash;
-    
+        
         //VALIDATION DUPLICITY
         req.getConnection((err, conn)=>{
-            conn.query('SELECT * FROM usuario WHERE nombreUsuario  = ? ' , [data.nombreUsuario], (err, rows)=>{
+            conn.query('SELECT * FROM usuario WHERE nombreUsuario  = BINARY  ?' , [data.nombreUsuario], (err, rows)=>{
                 if(rows.length > 0){
                     res.render('register', {error: 'Lo sentimos este usuario ya existe', exito: null});
-            
                 }else{
                      //CREATE USER
                     req.getConnection((err,conn)=>{
-                        conn.query('INSERT INTO usuario set ?', [data], (err, rows)=>{
+                        conn.query('INSERT INTO usuario set  ?', [data], (err, rows)=>{
                             if(err){
-                                console.log(data)
-                                res.render('register', {error: 'Lo sentimos este correo ya esta en uso!', exito:null}); 
+                                res.render('register', {error: 'Lo hubo un problema al registrar el usuario!', exito:null}); 
                             }else{
                                 res.render('register', {exito: 'El usuario se ha creado correctamente', error:null});
                             }
@@ -43,7 +41,7 @@ controller.newUser = async (req, res )=>{
 controller.iniciar =  (req, res)=>{
     const data = req.body
     req.getConnection((err, conn)=>{
-        conn.query('SELECT * FROM usuario WHERE nombreUsuario  = ?', [data.nombreUsuario], (err, rows)=>{
+        conn.query('SELECT * FROM usuario WHERE nombreUsuario  = BINARY  ? ', [data.nombreUsuario], (err, rows)=>{
             //VERIFY IF USER EXIST
             if(rows.length > 0){
                 //VALIDATION DATA
@@ -53,6 +51,7 @@ controller.iniciar =  (req, res)=>{
                         if(!isMatch){
                             res.render('login', {error: '!Información incorrecta, vuelve a intentarlo¡'});
                         }else{  
+
                             //SESSIONS WHITH ROL
                             if(element.rol === "visitante" ){
                                 //validation authentication user

@@ -4,11 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css" integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <%- include('component/_favicon') %>
     <title>BirdStone</title>
 </head>
 <body>
-    <nav><a href="/products">products</a></nav>
-    <%- include('../component/_logOut') %>
-    <h1>Welcome admin </h1>
+    <div class="grid">
+        <header class="page-header">
+          <div class="content">
+            <div class="content-div">
+                <div class="left-o">
+                    <a href=""><p class="p_l">BirdStone</p></a>
+                </div >
+                <div class="left-o">
+                    <i class="fa-solid fa-bars"  id="bars"></i>
+                </div>
+                <div class="rigth-o">
+                    <div class="optionn">
+                        <a href="/exit"><i class="fa-solid fa-right-from-bracket"></i></a> <%- include('../component/_logOut') %>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </header>
+    </div>
+    <div class="flex-content">
+        <div class="options">
+            <div class="option">
+                <a href="/products"><i class="fa-solid fa-clipboard"></i><p class="inf_p">Products</a></p>
+            </div>
+            <div class="option">
+                <a href="/products"><i class="fa-solid fa-clipboard"></i><p class="inf_p">Products</a></p>
+            </div>
+            <div class="option">
+                <a href="/products"><i class="fa-solid fa-clipboard"></i><p class="inf_p">Products</a></p>
+            </div>
+            <div class="option">
+                <a href="/products"><i class="fa-solid fa-clipboard"></i><p class="inf_p">Products</a></p>
+            </div>
+        </div>
+        <div class="view">
+            q
+        </div>
+    </div>
 </body>
 </html>
